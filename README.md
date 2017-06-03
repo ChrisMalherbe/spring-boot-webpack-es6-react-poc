@@ -1,4 +1,4 @@
-### POC: Kotlin + Spring Boot + Webpack + Babel + ReactJS
+### POC: Kotlin + Spring Boot + Webpack + Babel + ReactJS [![CircleCI](https://circleci.com/gh/idugalic/spring-boot-webpack-es6-react-poc.svg?style=svg)](https://circleci.com/gh/idugalic/spring-boot-webpack-es6-react-poc)
 
 ```bash
 mvn clean package spring-boot:run
