@@ -32,7 +32,7 @@ jobs:
       - persist_to_workspace:
           root: target
           paths:
-            - .
+            - kotlin-spring-boot-reactjs-poc-0.0.1-SNAPSHOT.jar
  
   downstream:
     <<: *defaults
