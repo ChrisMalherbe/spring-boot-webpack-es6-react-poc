@@ -22,13 +22,11 @@ jobs:
           key: kotlin-spring-boot-reactjs-poc-{{ checksum "pom.xml" }}
 
       - run: mvn package
-      
-      - run: rm -rf target/classes/
-      - run: rm -rf target/node/
-      - run: rm -rf target/maven-archiver/
-
+    
       - store_test_results:
           path: target/surefire-reports/
+          
+      - run: rm -rf !(*.jar)
 
       - store_artifacts:
           path: target/
