@@ -1,12 +1,12 @@
+defaults: &defaults
+  working_directory: ~/kotlin-spring-boot-reactjs-poc
+  docker:
+    - image: circleci/openjdk:8-jdk-browsers
+    
 version: 2
 jobs:
   build:
-
-    working_directory: ~/kotlin-spring-boot-reactjs-poc
-
-    docker:
-      - image: circleci/openjdk:8-jdk-browsers
-
+    <<: *defaults
     steps:
 
       - checkout
@@ -28,3 +28,27 @@ jobs:
 
       - store_artifacts:
           path: target/kotlin-spring-boot-reactjs-poc-0.0.1-SNAPSHOT.jar
+          
+      - persist_to_workspace:
+          root: target
+          paths:
+            - .
+ 
+  downstream:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: /target
+          
+      - run: ls -la /target
+
+workflows:
+version: 2
+
+btd:
+  jobs:
+    - build
+    - downstream:
+        requires:
+          - build
+
