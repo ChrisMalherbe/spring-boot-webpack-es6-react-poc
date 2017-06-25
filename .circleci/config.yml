@@ -26,7 +26,9 @@ jobs:
       - store_test_results:
           path: target/surefire-reports/
           
-      - run: shopt -s extglob && rm -rf !(*.jar)
+      - run: shopt -s extglob
+      
+      - run: rm -rf !(*.jar)
 
       - store_artifacts:
           path: target/
