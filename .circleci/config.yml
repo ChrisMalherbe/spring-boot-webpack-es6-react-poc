@@ -30,7 +30,7 @@ jobs:
           path: target/kotlin-spring-boot-reactjs-poc-0.0.1-SNAPSHOT.jar
           
       - persist_to_workspace:
-          root: /home/circleci/kotlin-spring-boot-reactjs-poc/target
+          root: ~/kotlin-spring-boot-reactjs-poc/target
           paths:
             - kotlin-spring-boot-reactjs-poc-0.0.1-SNAPSHOT.jar
  
@@ -38,9 +38,9 @@ jobs:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: /target
+          at: ~/kotlin-spring-boot-reactjs-poc/workspace
           
-      - run: ls -la /target
+      - run: ls -la ~/kotlin-spring-boot-reactjs-poc/workspace
 
 workflows:
   version: 2
