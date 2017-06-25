@@ -26,9 +26,9 @@ jobs:
       - store_test_results:
           path: target/surefire-reports/
           
-      - run: shopt -s extglob
-      
-      - run: rm -rf !(*.jar)
+      - run: rm -rf target/classes/
+      - run: rm -rf target/node/
+      - run: rm -rf target/maven-archiver/
 
       - store_artifacts:
           path: target/
