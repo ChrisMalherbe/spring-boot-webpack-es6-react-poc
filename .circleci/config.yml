@@ -1,5 +1,5 @@
 defaults: &defaults
-  working_directory: ~/kotlin-spring-boot-reactjs-poc
+  working_directory: /home/circleci/kotlin-spring-boot-reactjs-poc
   docker:
     - image: circleci/openjdk:8-jdk-browsers
     
@@ -38,9 +38,9 @@ jobs:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: ~/kotlin-spring-boot-reactjs-poc/workspace
+          at: workspace/
           
-      - run: ls -la ~/kotlin-spring-boot-reactjs-poc/workspace
+      - run: ls -la workspace/
 
 workflows:
   version: 2
