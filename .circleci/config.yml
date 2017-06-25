@@ -43,12 +43,12 @@ jobs:
       - run: ls -la /target
 
 workflows:
-version: 2
+  version: 2
 
-btd:
-  jobs:
-    - build
-    - downstream:
-        requires:
-          - build
+  btd:
+    jobs:
+      - build
+      - downstream:
+          requires:
+            - build
 
