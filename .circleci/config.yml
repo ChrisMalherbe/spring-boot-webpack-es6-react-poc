@@ -30,7 +30,7 @@ jobs:
           path: target/kotlin-spring-boot-reactjs-poc-0.0.1-SNAPSHOT.jar
           
       - persist_to_workspace:
-          root: ~/kotlin-spring-boot-reactjs-poc/target
+          root: target/
           paths:
             - kotlin-spring-boot-reactjs-poc-0.0.1-SNAPSHOT.jar
  
