@@ -55,6 +55,7 @@ jobs:
       - run: ls -la workspace/
       
   approve-production:
+    <<: *defaults
     steps:
       - run: echo Approve_Production
       
