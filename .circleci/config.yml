@@ -85,5 +85,5 @@ workflows:
             - staging-e2e
       - production:
           requires:
-            - staging
+            - approve-production
 
