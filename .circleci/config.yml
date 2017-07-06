@@ -53,6 +53,7 @@ workflows:
     jobs:
       - build
       - downstream:
+          type: approval
           requires:
             - build
 
