@@ -38,7 +38,27 @@ jobs:
           paths:
             - .
  
-  downstream:
+  staging:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: workspace/
+          
+      - run: ls -la workspace/
+      
+  staging-e2e:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: workspace/
+          
+      - run: ls -la workspace/
+      
+  approve-production:
+    steps:
+      - run: echo Approve_Production
+      
+  production:
     <<: *defaults
     steps:
       - attach_workspace:
@@ -52,8 +72,17 @@ workflows:
   btd:
     jobs:
       - build
-      - downstream:
-          type: approval
+      - staging:
           requires:
             - build
+      - staging-e2e:
+          requires:
+            - staging
+      - approve-production:
+          type: approval
+          requires:
+            - staging-e2e
+      - production:
+          requires:
+            - staging
 
